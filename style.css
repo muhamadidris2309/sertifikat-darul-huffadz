@@ -1,0 +1,337 @@
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --green: #176b45;
+  --dark-green: #103d2b;
+  --light-green: #eaf5ee;
+  --gold: #e8c875;
+  --text: #173d2c;
+  --muted: #78847c;
+}
+
+html {
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f3f6f4;
+  color: var(--text);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 7%;
+  background: var(--dark-green);
+  color: white;
+}
+
+.logo {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+  color: var(--dark-green);
+  border-radius: 13px;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.header h1 {
+  font-size: 19px;
+}
+
+.header p {
+  color: #d2dfd7;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* MAIN LAYOUT */
+.container {
+  width: min(100% - 40px, 960px);
+  margin: 48px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+/* HERO */
+.hero {
+  padding: 10px 0;
+}
+
+.label {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.hero h2 {
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.13;
+  letter-spacing: -1px;
+  margin-bottom: 18px;
+}
+
+.description {
+  color: #69786f;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* FORM CARD */
+.form-card {
+  min-width: 0;
+  background: white;
+  padding: 28px;
+  border: 1px solid #e7eee9;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px #173d2c0d;
+}
+
+.form-card h3 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 7px 0 24px;
+}
+
+/* INPUTS */
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 18px 0 9px;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #dce4de;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #8dc8a5;
+  outline-offset: 2px;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 22px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--green);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:hover {
+  background: #105536;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* PREVIEW NAME */
+.hasil {
+  margin-top: 22px;
+  padding: 18px;
+  background: var(--light-green);
+  border: 1px solid #d9ebdf;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.hasil p {
+  color: #65766b;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+#namaHasil {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+footer {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* TABLET */
+@media (max-width: 800px) {
+  .container {
+    width: min(100% - 36px, 560px);
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 32px auto;
+  }
+
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .form-card {
+    padding: 25px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  body {
+    background: #f5f7f5;
+  }
+
+  .header {
+    padding: 15px 18px;
+    gap: 10px;
+  }
+
+  .logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    font-size: 16px;
+  }
+
+  .header h1 {
+    font-size: 17px;
+  }
+
+  .header p {
+    font-size: 11px;
+  }
+
+  .container {
+    width: calc(100% - 32px);
+    margin: 25px auto;
+    gap: 22px;
+  }
+
+  .hero {
+    padding: 0 2px;
+  }
+
+  .label {
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    margin-bottom: 12px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+    line-height: 1.17;
+    letter-spacing: -0.7px;
+    margin-bottom: 12px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .form-card {
+    padding: 22px 18px;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px #173d2c0a;
+  }
+
+  .form-card h3 {
+    font-size: 20px;
+  }
+
+  .hint {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 13px;
+    margin-top: 17px;
+  }
+
+  input,
+  select {
+    min-height: 48px;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  button {
+    min-height: 50px;
+    font-size: 15px;
+  }
+
+  .hasil {
+    padding: 15px;
+  }
+
+  #namaHasil {
+    font-size: 18px;
+  }
+
+  footer {
+    padding: 20px 12px;
+  }
+}
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 360px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .hero h2 {
+    font-size: 29px;
+  }
+
+  .form-card {
+    padding: 18px 14px;
+  }
+}

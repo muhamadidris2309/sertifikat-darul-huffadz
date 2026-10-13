@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Sertifikat | Darul Huffadz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">DH</div>
+    <div>
+      <h1>Darul Huffadz</h1>
+      <p>Certificate Generator</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="label">SISTEM SERTIFIKAT DIGITAL</p>
+      <h2>KARYA ANAK PRAMUKA DUHA <br> (DSM).</h2>
+      <p class="description">
+        Pesta Siaga & Perjusa Darul Huffadz.
+        Masukkan nama peserta untuk memulai.
+      </p>
+    </section>
+
+    <section class="form-card">
+      <h3>Generator Sertifikat</h3>
+      <p class="hint">Lengkapi data di bawah ini.</p>
+
+      <label for="jenis">Jenis kegiatan</label>
+      <select id="jenis">
+        <option value="Pesta Siaga">Pesta Siaga</option>
+        <option value="Perjusa">Perjusa</option>
+      </select>
+
+      <label for="nama">Nama peserta</label>
+      <input
+        type="text"
+        id="nama"
+        placeholder="Masukkan nama lengkap"
+      >
+
+<button type="button" id="btnDownload">
+  Download Sertifikat PDF
+</button>
+
+      <div id="hasil" class="hasil" hidden>
+        <p>Nama peserta:</p>
+        <h3 id="namaHasil"></h3>
+        <p id="kegiatanHasil"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Darul Huffadz
+  </footer>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
