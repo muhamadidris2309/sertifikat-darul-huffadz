@@ -62,7 +62,7 @@ btnDownload.addEventListener("click", async function () {
 
     halaman.drawText(namaPeserta, {
       x: (width - lebarNama) / 2,
-      y: height * 0.40,
+      y: height * 0.57,
       size: ukuranFont,
       font: font,
       color: PDFLib.rgb(0, 0, 0)
