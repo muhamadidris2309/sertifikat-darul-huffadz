@@ -1,61 +1,39 @@
 
 const jenis = document.getElementById("jenis");
 const nama = document.getElementById("nama");
-const btnPreview = document.getElementById("btnPreview");
 const btnDownload = document.getElementById("btnDownload");
-const hasil = document.getElementById("hasil");
-const namaHasil = document.getElementById("namaHasil");
-const kegiatanHasil = document.getElementById("kegiatanHasil");
 
-function getFilePDF() {
-  return jenis.value === "Pesta Siaga"
-    ? "sertifikat/Pesta%20Siaga.pdf"
-    : "sertifikat/Perjusa.pdf";
-}
-
-// Preview nama
-btnPreview.addEventListener("click", function () {
-  const namaPeserta = nama.value.trim();
-
-  if (!namaPeserta) {
-    alert("Masukkan nama peserta terlebih dahulu!");
-    nama.focus();
-    return;
-  }
-
-  namaHasil.textContent = namaPeserta;
-  kegiatanHasil.textContent = "Kegiatan: " + jenis.value;
-  hasil.hidden = false;
-});
-
-// DOWNLOAD SERTIFIKAT PDF
 btnDownload.addEventListener("click", async function () {
   const namaPeserta = nama.value.trim();
 
   if (!namaPeserta) {
-    alert("Masukkan nama peserta terlebih dahulu!");
+    alert("Masukkan nama peserta terlebih dahulu, bro!");
     nama.focus();
     return;
   }
 
   if (typeof PDFLib === "undefined") {
-    alert("Library PDF belum termuat. Muat ulang halaman!");
+    alert("Library PDF belum termuat. Periksa koneksi internet!");
     return;
   }
 
   const namaFile = namaPeserta
     .replace(/[<>:"/\\|?*\x00-\x1F]/g, "")
-    .trim()
     .replace(/\s+/g, "_") || "Peserta";
 
   btnDownload.disabled = true;
   btnDownload.textContent = "Sedang membuat PDF...";
 
   try {
-    const response = await fetch(getFilePDF());
+    const filePDF =
+      jenis.value === "Pesta Siaga"
+        ? "sertifikat/Pesta%20Siaga.pdf"
+        : "sertifikat/Perjusa.pdf";
+
+    const response = await fetch(filePDF);
 
     if (!response.ok) {
-      throw new Error("PDF gagal dibuka. Status: " + response.status);
+      throw new Error("PDF tidak ditemukan. Status: " + response.status);
     }
 
     const pdfBytes = await response.arrayBuffer();
@@ -90,8 +68,8 @@ btnDownload.addEventListener("click", async function () {
       color: PDFLib.rgb(0, 0, 0)
     });
 
-    const pdfHasil = await pdfDoc.save();
-    const blob = new Blob([pdfHasil], {
+    const hasilPDF = await pdfDoc.save();
+    const blob = new Blob([hasilPDF], {
       type: "application/pdf"
     });
 
