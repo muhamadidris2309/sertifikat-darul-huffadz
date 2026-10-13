@@ -30,7 +30,9 @@ btnDownload.addEventListener("click", async function () {
         ? "sertifikat/Pesta%20Siaga.pdf"
         : "sertifikat/Perjusa.pdf";
 
-    const response = await fetch(filePDF);
+    const response = await fetch(filePDF, {
+  cache: "no-store"
+});
 
     if (!response.ok) {
       throw new Error("PDF tidak ditemukan. Status: " + response.status);
