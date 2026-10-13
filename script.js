@@ -31,9 +31,8 @@ btnPreview.addEventListener("click", function () {
   hasil.hidden = false;
 });
 
-// Download sertifikat PDF
-btnDownload.addEventListener("click", async function () {
-  const namaPeserta = nama.value.trim();
+// btnDownload.addEventListener("click", async function () {
+  alert("Tombol download berhasil diklik!");
 
   if (!namaPeserta) {
     alert("Masukkan nama peserta terlebih dahulu!");
